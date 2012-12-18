@@ -1,0 +1,2 @@
+#!/bin/sh
+center_dmenu.py $@ > /dev/null
