@@ -13,6 +13,8 @@ Introduction
 
 A simple script to center dmenu.
 
+**NOTE:** This does not have good behaviour for multiple monitors yet.
+
 Running *reapo* / Installation
 ----------------------------------
 
@@ -44,4 +46,5 @@ Usage
 
 TODO
 ~~~~
+-   Make it work for multiple monitors (query Outputs instead of screens?)
 -   Improve README
