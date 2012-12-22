@@ -17,7 +17,7 @@ A simple script to center dmenu.
 
 .. image:: http://i.imgur.com/goITZ.png
 
-Running *reapo* / Installation
+Running *center_dmenu* / Installation
 ----------------------------------
 
 **NOTE:** Python 3 is not supported since `python-xlib` is not available for
