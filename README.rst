@@ -15,6 +15,8 @@ A simple script to center dmenu.
 
 **NOTE:** This does not have good behaviour for multiple monitors yet.
 
+.. image:: http://i.imgur.com/goITZ.png
+
 Running *reapo* / Installation
 ----------------------------------
 
