@@ -7,28 +7,44 @@ from os import system
 def get_dimensions():
     current_display = display.Display()
     current_screen = current_display.screen()
+
     return (current_screen['width_in_pixels'],
-            current_screen['height_in_pixels'])
+            current_screen['height_in_pixels'],
+            current_screen['width_in_mms'],
+            current_screen['height_in_mms'])
 
 
 def parse_dmenu_args(args):
-    x_width, x_height = get_dimensions()
+    x_width, x_height, mms_width, mms_height = get_dimensions()
     num_args = len(args)
 
-    # Set some default values for dmenu args
-    dmenu_run_args = {
-        'x': 200,
-        'height': 50,
-        'extra_args': "-fn 'Inconsolata:size=10'"
-    }
+    # Do some math to determine a multiplier to go from points to pixels.
+    pixels_per_point = x_height / (mms_height / 25.4) / 72
+
+    # 20% padding means only 80% of the screen is used by dmenu with 10%
+    # padding on each side.
+    padding = .24
+    typeface = 'Inconsolata'
+    # Font size and lineheight are in points
+    font_size = 10
+    line_height = 24
 
     # Get arguments from the command line.
     if num_args > 1:
-        dmenu_run_args['x'] = int(args[1])
+        padding = float(args[1])
     if num_args > 2:
-        dmenu_run_args['height'] = int(args[2])
+        line_height = int(args[2])
     if num_args > 3:
-        dmenu_run_args['extra_args'] = args[3]
+        font_size = int(args[3])
+    if num_args > 4:
+        typeface = args[4]
+
+    # Set some default values for dmenu args
+    dmenu_run_args = {
+        'x': int(round(padding * x_width / 2.0, 0)),
+        'height': int(round(line_height * pixels_per_point, 0)),
+        'extra_args': "-fn '{0}:size={1}'".format(typeface, font_size)
+    }
 
     # Determine propper height and width for input into dmenu
     dmenu_run_args['width'] = x_width - (2 * dmenu_run_args['x'])
