@@ -69,7 +69,7 @@ def parse_dmenu_args(args):
 
 def main(args):
     dmenu_run_args = parse_dmenu_args(args)
-    return system(("dmenu_run {extra_args} -w {width} -x {x} -y {y}"
+    return system(("dmenu_run {extra_args} -y {y}"
                    " -h {height}").format(**dmenu_run_args))
 
 if __name__ == '__main__':
