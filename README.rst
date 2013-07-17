@@ -33,6 +33,11 @@ To install center_dmenu from source: ::
     cd center_dmenu
     python2 setup.py install
 
+You probably also need the `python-xlib` package. It is hard to get this via
+pip so just use your package manager. ::
+
+    sudo apt-get install python-xlib # In ubuntu
+
 If you want to run center_dmenu from source you need to manually get the
 dependencies first. ::
 
