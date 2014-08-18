@@ -72,5 +72,8 @@ def main(args):
     return system(("dmenu_run {extra_args} -y {y}"
                    " -h {height}").format(**dmenu_run_args))
 
-if __name__ == '__main__':
+def console_main():
     sys.exit(main(sys.argv))
+
+if __name__ == '__main__':
+    console_main()

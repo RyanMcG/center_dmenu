@@ -21,7 +21,7 @@ setup(name='center_dmenu',
       py_modules=['center_dmenu'],
       entry_points={
           'console_scripts': [
-              'center_dmenu = center_dmenu:main'
+              'center_dmenu = center_dmenu:console_main'
           ]
       },
       classifiers=['Development Status :: 4 - Beta',
