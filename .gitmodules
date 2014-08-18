@@ -1,0 +1,3 @@
+[submodule "dmenu"]
+	path = dmenu
+	url = git@github.com:mil/dmenu-q-xywh-xft.git
