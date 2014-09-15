@@ -44,7 +44,7 @@ def parse_dmenu_args(args):
 
     # Font size and lineheight are in points
     line_height = int(args[2]) if num_args > 2 else 24
-    font_size = int(args[3]) if num_args > 3 else 10
+    font_size = int(args[3]) if num_args > 3 else 11
 
     typeface = args[4] if num_args > 4 else 'Inconsolata'
 
