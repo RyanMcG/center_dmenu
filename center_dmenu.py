@@ -36,23 +36,17 @@ def parse_dmenu_args(args):
     # Do some math to determine a multiplier to go from points to pixels.
     pixels_per_point = x_height / (mms_height / 25.4) / 72
 
+    # Get arguments from the command line.
+
     # 20% padding means only 80% of the screen is used by dmenu with 10%
     # padding on each side.
-    padding = .24
-    typeface = 'Inconsolata'
-    # Font size and lineheight are in points
-    font_size = 10
-    line_height = 24
+    padding = float(args[1]) if num_args > 1 else .24
 
-    # Get arguments from the command line.
-    if num_args > 1:
-        padding = float(args[1])
-    if num_args > 2:
-        line_height = int(args[2])
-    if num_args > 3:
-        font_size = int(args[3])
-    if num_args > 4:
-        typeface = args[4]
+    # Font size and lineheight are in points
+    line_height = int(args[2]) if num_args > 2 else 24
+    font_size = int(args[3]) if num_args > 3 else 10
+
+    typeface = args[4] if num_args > 4 else 'Inconsolata'
 
     # Set some default values for dmenu args
     dmenu_run_args = {
@@ -69,8 +63,9 @@ def parse_dmenu_args(args):
 
 def main(args):
     dmenu_run_args = parse_dmenu_args(args)
-    return system(("dmenu_run {extra_args} -y {y}"
+    return system(("dmenu_run {extra_args} -w {width} -x {x} -y {y}"
                    " -h {height}").format(**dmenu_run_args))
+
 
 def console_main():
     sys.exit(main(sys.argv))
