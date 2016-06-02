@@ -1,3 +1,5 @@
+**DEPRECATED:** Consider using [my fork of dmenu](https://github.com/RyanMcG/dmenu) instead.
+
 ============
 center_dmenu
 ============
