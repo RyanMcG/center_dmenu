@@ -1,4 +1,4 @@
-**DEPRECATED:** Consider using [my fork of dmenu](https://github.com/RyanMcG/dmenu) instead.
+**DEPRECATED:** Consider using `my fork of dmenu <https://github.com/RyanMcG/dmenu>`_ instead.
 
 ============
 center_dmenu
